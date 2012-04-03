@@ -87,7 +87,7 @@ fi
         for (( c=0; c<size; c++ )); do
             substitutions="$substitutions""s/$r,$c/&=${minefield[$((r*size+c))]}/;"
             empty_field="$empty_field-"
-            process_input="$process_input"'s/\('"$(echo "${dots:0:$((r*size + c))}"'\).\('"${dots:$((r*size + c + 1))}"'\)' | sed 's/[\()]*'$regex'\.\(\\(\)*/&\\n/g' | sed 's/\\n\\)$/\\)/')"'\n'"$r,$c="'\(.\)/\1\3\2/;t process_input;'
+            process_input="$process_input"'s/^\('"$(echo "${dots:0:$((r*size + c))}"'\).\('"${dots:$((r*size + c + 1))}"'\)' | sed 's/[\()]*'$regex'\.\(\\(\)*/&\\n/g' | sed 's/\\n\\)$/\\)/')"'\n'"$r,$c="'\(.\)/\1\3\2/;t process_input;'
         done
     done
     empty_field=${empty_field:2} # remove the leading \n
@@ -122,8 +122,7 @@ q
 H
 s/[^F]//g
 $count
-s/F//
-t cheater
+/^..*$/t cheater
 :won
 a\\
 Shit this guy is good.
@@ -142,6 +141,8 @@ if [ -z $2 ]; then
     echo "Ready."
     sed -f $outfile
     rm $outfile
+else
+    chmod a+x $outfile
 fi
 
 
