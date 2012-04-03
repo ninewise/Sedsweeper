@@ -14,7 +14,9 @@ The code has a slightly readable layout, and is commented.
 
 The generator.sh file contains the code to generate new games, written in bash.
 It needs to be called as:
+
     generator.sh {infile|-r size} [outfile]
+
 where -r will generate a random field of given size, infile will generate the
 field specified in the file (sample included), and outfile will contain the
 generated sed-script.  If the outfile is not specified, the sed-script will be
