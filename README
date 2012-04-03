@@ -1,16 +1,13 @@
 
-Sedsweeper
-==========
+# Sedsweeper
 
-About
------
+## About
 
 Sedsweeper is an implementation of the game Minesweeper, written in sed.
 Because the location of the mines had to be hard-coded (due to the limitations
 of sed), the sed source-files have to be generated.
 
-Usage
------
+## Usage
 
 The sedsweeper file contains a runnable script with a small (3 on 3) minefield.
 The code has a slightly readable layout, and is commented.
